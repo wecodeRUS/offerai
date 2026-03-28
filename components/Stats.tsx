@@ -1,44 +1,23 @@
 export default function Stats() {
-  const stats = [
-    {
-      number: '5 000+',
-      title: 'Звонков с HR-специалистами',
-      description: 'Агент прослушал и проанализировал реальные интервью, чтобы понять, какие ответы работают, а какие — нет.',
-    },
-    {
-      number: '46 000+',
-      title: 'Резюме в базе',
-      description: 'Агент опирается на большую базу реальных резюме, чтобы находить слабые и сильные места в вашем тексте.',
-    },
-    {
-      number: '91%',
-      suffix: '*',
-      title: 'Проходят ATS после разбора',
-      description: 'Столько кандидатов стали проходить автоматическую фильтрацию работодателей после того, как агент разобрал их резюме.',
-    },
-  ]
-
   return (
-    <section className="bg-accent-light border-y border-border py-12">
+    <section className="bg-dark py-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
-          {stats.map((stat) => (
-            <div key={stat.title} className="flex flex-col gap-2">
-              <div className="flex items-baseline gap-0.5">
-                <span className="text-3xl font-semibold text-accent">{stat.number}</span>
-                {stat.suffix && (
-                  <span className="text-sm text-accent font-medium align-super">{stat.suffix}</span>
-                )}
-              </div>
-              <p className="text-sm font-medium text-text-primary">{stat.title}</p>
-              <p className="text-sm text-text-secondary leading-relaxed">{stat.description}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 text-center">
+          <div>
+            <span className="text-3xl font-bold text-white">5 000+</span>
+            <p className="text-sm text-white/60 mt-1">Звонков с HR разобрано агентом</p>
+          </div>
+          <div>
+            <span className="text-3xl font-bold text-white">46 000+</span>
+            <p className="text-sm text-white/60 mt-1">Резюме в базе для анализа</p>
+          </div>
+          <div>
+            <span className="text-3xl font-bold text-white">91%<span className="text-accent text-lg align-super">*</span></span>
+            <p className="text-sm text-white/60 mt-1">Проходят ATS после разбора</p>
+          </div>
         </div>
-
-        {/* Footnote */}
-        <p className="mt-8 text-xs text-text-secondary border-t border-border pt-4">
-          * ATS (Applicant Tracking System) — система автоматической фильтрации резюме, которую используют крупные работодатели для первичного отбора кандидатов.
+        <p className="text-center text-[11px] text-white/30 mt-6">
+          * ATS — автоматическая фильтрация резюме у крупных работодателей
         </p>
       </div>
     </section>

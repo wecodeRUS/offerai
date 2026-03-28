@@ -1,111 +1,81 @@
 export default function Hero() {
   return (
-    <section className="bg-bg pt-16 pb-12 sm:pt-20 sm:pb-16">
+    <section className="bg-bg pt-14 pb-10 sm:pt-20 sm:pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="max-w-2xl">
-          {/* Label */}
-          <div className="inline-flex items-center gap-2 bg-accent-light text-accent text-xs font-medium px-3 py-1.5 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
-            Первые 3 сессии бесплатно
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* Left — text */}
+          <div>
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold text-text-primary leading-tight tracking-tight mb-4">
+              Вы знаете ответ.<br />
+              Но на собеседовании — теряетесь.
+            </h1>
 
-          {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-text-primary leading-tight tracking-tight mb-5">
-            Готовьтесь к собеседованию на своём резюме — не по абстрактным советам
-          </h1>
+            <p className="text-base text-text-secondary leading-relaxed mb-6 max-w-md">
+              Загрузите резюме и вакансию. Ответьте на вопросы. Получите конкретный разбор — что не так и как это исправить.
+            </p>
 
-          {/* Subheading */}
-          <p className="text-lg text-text-secondary leading-relaxed mb-8 max-w-xl">
-            Загрузите резюме и описание вакансии. Агент задаст реальные вопросы под вашу ситуацию, выслушает ответы и скажет, что именно не так — без воды.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-5">
-            <a
-              href="https://app.getofferai.ru/register"
-              className="btn-primary px-6 py-3 text-base"
-            >
-              Попробовать бесплатно
-            </a>
-            <a
-              href="#demo"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
-            >
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 8l6 4-6 4V8z" />
-              </svg>
-              Смотреть пример разбора
-            </a>
-          </div>
-
-          {/* Trust note */}
-          <p className="text-xs text-text-secondary">
-            Карта не нужна · Без подписки · Работает для любой специальности
-          </p>
-        </div>
-
-        {/* Visual mockup */}
-        <div className="mt-12 max-w-2xl">
-          <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
-            {/* Mockup header */}
-            <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border bg-bg">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-300"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-300"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-green-300"></div>
-              <span className="ml-3 text-xs text-text-secondary">OfferAI — разбор ответа</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-4">
+              <a href="https://app.getofferai.ru/register" className="btn-primary px-6 py-3 text-base">
+                Попробовать бесплатно
+              </a>
+              <a href="#demo" className="text-sm text-text-secondary hover:text-accent transition-colors">
+                Посмотреть пример ↓
+              </a>
             </div>
 
-            {/* Mockup content */}
-            <div className="p-5 space-y-4">
-              {/* Context */}
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-accent-light flex-shrink-0 flex items-center justify-center mt-0.5">
-                  <span className="text-accent text-xs font-semibold">HR</span>
+            <p className="text-xs text-text-secondary">Без карты. Без подписки.</p>
+          </div>
+
+          {/* Right — mockup */}
+          <div className="bg-white rounded-2xl border border-border shadow-sm overflow-hidden">
+            {/* Window bar */}
+            <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-border bg-bg">
+              <div className="w-2 h-2 rounded-full bg-red-300"></div>
+              <div className="w-2 h-2 rounded-full bg-yellow-300"></div>
+              <div className="w-2 h-2 rounded-full bg-green-300"></div>
+              <span className="ml-3 text-[11px] text-text-secondary">Разбор ответа</span>
+            </div>
+
+            <div className="p-4 space-y-3">
+              {/* Question */}
+              <div className="flex items-start gap-2.5">
+                <div className="w-6 h-6 rounded-full bg-accent-light flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-accent text-[10px] font-bold">HR</span>
                 </div>
-                <div>
-                  <p className="text-sm text-text-secondary text-xs mb-1">Backend-разработчик · Java · Fintech</p>
-                  <p className="text-sm text-text-primary font-medium">Расскажите о самом сложном техническом проекте, в котором вы участвовали.</p>
-                </div>
+                <p className="text-sm font-medium text-text-primary">Расскажите о сложном проекте, в котором вы участвовали.</p>
               </div>
 
-              {/* Candidate answer */}
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-border flex-shrink-0 flex items-center justify-center mt-0.5">
-                  <span className="text-text-secondary text-xs font-semibold">Я</span>
-                </div>
-                <div className="bg-bg rounded-lg px-3 py-2.5 text-sm text-text-secondary">
-                  Мы делали большой сервис для банка. Было много сложностей с производительностью и интеграциями. В итоге всё получилось, я многому научился.
-                </div>
+              {/* Weak answer */}
+              <div className="bg-bg rounded-lg px-3 py-2 text-[13px] text-text-secondary leading-relaxed">
+                Мы делали большой сервис для банка. Было много сложностей. В итоге всё получилось, я многому научился.
               </div>
 
-              {/* Score */}
-              <div className="bg-bg rounded-xl p-4 space-y-2.5">
-                <p className="text-xs font-medium text-text-secondary uppercase tracking-wide">Разбор по критериям</p>
+              {/* Score bars */}
+              <div className="grid grid-cols-3 gap-2">
                 {[
-                  { label: 'Конкретность', score: 2, max: 5 },
-                  { label: 'Структура', score: 1, max: 5 },
-                  { label: 'Попадание в вакансию', score: 3, max: 5 },
+                  { label: 'Конкретика', score: 1 },
+                  { label: 'Структура', score: 2 },
+                  { label: 'Ваша роль', score: 1 },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-3">
-                    <span className="text-xs text-text-secondary w-36">{item.label}</span>
-                    <div className="flex gap-1">
-                      {Array.from({ length: item.max }).map((_, i) => (
+                  <div key={item.label} className="text-center">
+                    <div className="flex gap-0.5 justify-center mb-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
                         <div
                           key={i}
-                          className={`w-4 h-1.5 rounded-full ${i < item.score ? 'bg-highlight' : 'bg-border'}`}
+                          className={`w-3 h-1 rounded-full ${i < item.score ? 'bg-accent' : 'bg-border'}`}
                         />
                       ))}
                     </div>
-                    <span className="text-xs text-text-secondary">{item.score}/{item.max}</span>
+                    <span className="text-[10px] text-text-secondary">{item.label}</span>
                   </div>
                 ))}
               </div>
 
               {/* Suggestion */}
-              <div className="border-l-2 border-accent pl-3">
-                <p className="text-xs font-medium text-accent mb-1">Что можно улучшить</p>
-                <p className="text-xs text-text-secondary">Добавьте конкретику: название системы, объём нагрузки, ваша роль и что именно вы сделали для решения проблемы с производительностью.</p>
+              <div className="border-l-2 border-accent pl-3 py-1">
+                <p className="text-[12px] text-text-secondary">
+                  <span className="font-medium text-accent">Что исправить:</span> добавьте название проекта, вашу роль и конкретный результат с цифрами.
+                </p>
               </div>
             </div>
           </div>

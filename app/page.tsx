@@ -4,7 +4,6 @@ import Stats from '@/components/Stats'
 import Demo from '@/components/Demo'
 import HowItWorks from '@/components/HowItWorks'
 import Scenarios from '@/components/Scenarios'
-import Comparison from '@/components/Comparison'
 import Pricing from '@/components/Pricing'
 import Trust from '@/components/Trust'
 import FAQ from '@/components/FAQ'
@@ -20,7 +19,6 @@ export default function Home() {
         <Demo />
         <HowItWorks />
         <Scenarios />
-        <Comparison />
         <Pricing />
         <Trust />
         <FAQ />

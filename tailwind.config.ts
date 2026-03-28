@@ -14,9 +14,11 @@ const config: Config = {
         border: '#E8E3DB',
         'text-primary': '#1A1714',
         'text-secondary': '#6B6560',
-        accent: '#2C5F3F',
-        'accent-light': '#EDF4EF',
+        accent: '#C4553A',
+        'accent-light': '#FDF2EF',
+        'accent-dark': '#A3432D',
         highlight: '#D4A843',
+        dark: '#1E1B18',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
