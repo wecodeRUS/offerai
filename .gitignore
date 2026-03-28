@@ -3,3 +3,4 @@ node_modules/
 next-env.d.ts
 old_app.zip
 old_app/
+out/
