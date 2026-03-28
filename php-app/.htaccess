@@ -1,0 +1,16 @@
+<Files "config.php">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</Files>
+
+Options -Indexes
+
+RewriteEngine On
+RewriteRule ^index\.html$ / [R=302,L,QSA,NE]
+RewriteRule ^app\.html$ /app [R=302,L,QSA,NE]
+RewriteRule ^app/?$ /app.php [L]
