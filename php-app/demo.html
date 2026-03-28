@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OfferAI — Демо дизайна</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Demo-only extras */
+.demo-toggle-bar{position:fixed;top:0;left:0;right:0;z-index:999;background:#1A1714;color:#fff;font-family:Inter,sans-serif;font-size:.82rem;display:flex;align-items:center;gap:12px;padding:8px 16px}
+.demo-toggle-bar span{opacity:.5}
+.demo-btn{padding:4px 12px;border-radius:6px;background:rgba(255,255,255,.12);color:#fff;border:none;font-size:.8rem;cursor:pointer;font-family:inherit;transition:background .2s}
+.demo-btn.active{background:#C4553A}
+.demo-btn:hover{background:rgba(255,255,255,.2)}
+.demo-screen{display:none}
+.demo-screen.active{display:flex}
+body{padding-top:34px}
+
+/* OTP boxes (from app.php inline styles) */
+.otp-boxes{display:flex;gap:10px;justify-content:center;margin:20px 0}
+.otp-box{width:48px;height:56px;border-radius:12px;border:2px solid #E8E3DB;background:var(--bg3);font-size:1.4rem;font-weight:700;text-align:center;color:var(--text);outline:none;transition:border-color .2s}
+.otp-box:focus{border-color:rgba(196,85,58,.4)}
+
+/* File upload (from app.php inline styles) */
+.file-upload-area{padding:18px;border:1px dashed rgba(196,85,58,.25);border-radius:var(--radius);background:rgba(255,255,255,.72);display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;cursor:pointer;transition:all .2s}
+.file-upload-area:hover{border-color:rgba(196,85,58,.45);background:rgba(196,85,58,.04)}
+.file-upload-icon{font-size:1.35rem}
+.file-upload-title{font-size:.94rem;font-weight:600;color:var(--text)}
+.file-upload-subtitle{font-size:.82rem;color:var(--text2)}
+
+/* Upgrade grid */
+.upgrade-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+@media(max-width:640px){.upgrade-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- Demo toggle bar -->
+<div class="demo-toggle-bar">
+  <span>Демо дизайна OfferAI:</span>
+  <button class="demo-btn active" onclick="show('auth')">Авторизация</button>
+  <button class="demo-btn" onclick="show('app')">Кабинет</button>
+  <button class="demo-btn" onclick="show('home')">Главный экран</button>
+  <button class="demo-btn" onclick="show('upgrade')">Тарифы</button>
+</div>
+
+<!-- ===== SCREEN 1: AUTH MODAL ===== -->
+<div class="demo-screen active" id="screen-auth" style="min-height:calc(100vh - 34px);background:rgba(26,23,20,.5);align-items:center;justify-content:center;padding:24px">
+  <div class="auth-card" style="position:relative">
+    <h2>Вход</h2>
+    <p class="auth-sub">Войдите в личный кабинет</p>
+    <div class="auth-field">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com" value="ivan@example.com">
+    </div>
+    <div class="auth-field">
+      <label>Пароль</label>
+      <input type="password" placeholder="Минимум 6 символов" value="••••••••">
+    </div>
+    <button class="auth-submit">Войти</button>
+    <div class="auth-switch">Нет аккаунта? <a>Зарегистрироваться</a></div>
+    <button style="position:absolute;top:14px;right:16px;background:none;color:var(--text3);font-size:1.3rem;cursor:pointer;border:none">&times;</button>
+
+    <div style="margin-top:24px;padding-top:20px;border-top:1px solid #E8E3DB">
+      <p style="text-align:center;font-size:.8rem;color:var(--text3);margin-bottom:14px">Подтверждение по email — OTP</p>
+      <div class="otp-boxes">
+        <input type="text" class="otp-box" value="4">
+        <input type="text" class="otp-box" value="2">
+        <input type="text" class="otp-box" value="0">
+        <input type="text" class="otp-box" value="3">
+        <input type="text" class="otp-box" value="">
+        <input type="text" class="otp-box" value="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCREEN 2: APP LAYOUT ===== -->
+<div class="demo-screen" id="screen-app" style="height:calc(100vh - 34px)">
+  <div id="app" style="display:flex;height:100%;width:100%">
+    <div class="app-layout" style="width:100%">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sb-header">
+          <div class="sb-logo">Offer<span>AI</span></div>
+        </div>
+        <div class="sb-profile">
+          <div class="sb-profile-name">Иван Петров</div>
+          <div class="sb-profile-role">Backend-разработчик</div>
+          <div class="sb-profile-plan plan-prep">Подготовка</div>
+        </div>
+        <div class="sb-nav">
+          <div class="sb-section">
+            <div class="sb-section-title">Подготовка</div>
+            <div class="sb-item active"><span class="icon">🏠</span> Главная</div>
+            <div class="sb-item"><span class="icon">📄</span> Резюме</div>
+            <div class="sb-item"><span class="icon">🎯</span> Вакансия</div>
+            <div class="sb-item"><span class="icon">🎤</span> Практика</div>
+            <div class="sb-item"><span class="icon">🧪</span> Пробное интервью</div>
+          </div>
+          <div class="sb-section">
+            <div class="sb-section-title">Дополнительно</div>
+            <div class="sb-item"><span class="icon">💬</span> Истории и питч</div>
+            <div class="sb-item"><span class="icon">💰</span> Зарплата</div>
+            <div class="sb-item locked"><span class="icon">🤝</span> Переговоры <span class="lock">🔒</span></div>
+          </div>
+        </div>
+        <div class="sb-footer">
+          <div class="sb-uses">Осталось сессий: <strong>18</strong></div>
+          <button class="sb-logout">Выйти</button>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <div class="main-area">
+        <div class="main-header">
+          <div class="main-title">Практика ответов</div>
+          <div class="main-subtitle">Модуль 4 · Вопросы под вашу вакансию</div>
+        </div>
+        <div class="chat-area">
+          <!-- AI message -->
+          <div class="msg ai">
+            <div class="msg-bubble">
+              Хорошо, вы указали что претендуете на позицию Senior Backend Developer в финтех. Давайте начнём.<br><br>
+              <strong>Расскажите о самом сложном техническом проекте, в котором вы участвовали.</strong>
+            </div>
+            <div class="msg-time">14:23</div>
+          </div>
+
+          <!-- User message -->
+          <div class="msg user">
+            <div class="msg-bubble">Мы делали большой сервис для банка. Было много сложностей с производительностью и интеграциями. Команда работала несколько месяцев, в итоге всё получилось.</div>
+            <div class="msg-time">14:24</div>
+          </div>
+
+          <!-- AI with scorecard -->
+          <div class="msg ai" style="max-width:92%">
+            <div class="msg-bubble">
+              Понял. Давайте разберём ответ.
+              <div class="scorecard">
+                <div class="sc-title">Оценка по критериям</div>
+                <div class="sc-row">
+                  <div class="sc-label">Конкретность</div>
+                  <div class="sc-bar"><div class="sc-bar-fill low" style="width:20%"></div></div>
+                  <div class="sc-score">1/5</div>
+                </div>
+                <div class="sc-row">
+                  <div class="sc-label">Структура</div>
+                  <div class="sc-bar"><div class="sc-bar-fill low" style="width:30%"></div></div>
+                  <div class="sc-score">2/5</div>
+                </div>
+                <div class="sc-row">
+                  <div class="sc-label">Ваша роль</div>
+                  <div class="sc-bar"><div class="sc-bar-fill low" style="width:20%"></div></div>
+                  <div class="sc-score">1/5</div>
+                </div>
+                <div class="sc-row">
+                  <div class="sc-label">Результат</div>
+                  <div class="sc-bar"><div class="sc-bar-fill mid" style="width:40%"></div></div>
+                  <div class="sc-score">2/5</div>
+                </div>
+                <span class="hire-signal mixed">⚡ Слабый ответ</span>
+              </div>
+              <br>Что исправить: назовите проект конкретно, укажите вашу личную роль и результат с цифрами.
+              <div class="msg-buttons">
+                <button class="msg-btn">Попробовать ещё раз</button>
+                <button class="msg-btn">Показать пример сильного ответа</button>
+              </div>
+            </div>
+            <div class="msg-time">14:24</div>
+          </div>
+
+          <!-- Typing indicator -->
+          <div class="typing-indicator" style="display:inline-flex">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+
+        <!-- Resume upload -->
+        <div style="margin:0 24px 12px">
+          <div class="file-upload-area">
+            <div class="file-upload-icon">📎</div>
+            <div class="file-upload-title">Загрузить резюме</div>
+            <div class="file-upload-subtitle">PDF, DOC, DOCX — до 5 МБ</div>
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div class="input-area">
+          <div class="input-row">
+            <div class="input-wrap">
+              <textarea placeholder="Введите сообщение..." rows="1">Год назад я мигрировал процессинг платёжных уведомлений на микросервисы.</textarea>
+              <button class="voice-btn">🎤</button>
+            </div>
+            <button class="send-btn">&#10148;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCREEN 3: HOME ===== -->
+<div class="demo-screen" id="screen-home" style="height:calc(100vh - 34px);overflow:auto;background:var(--bg)">
+  <div class="home-screen">
+    <div class="home-greeting">Привет, <span>Иван</span> 👋</div>
+    <div class="home-sub">Готовитесь к собеседованию в SberTech — продолжим подготовку?</div>
+    <div class="home-modules">
+      <div class="home-mod"><div class="mod-icon">📄</div><div class="mod-name">Резюме</div><div class="mod-desc">Разбор под вакансию</div></div>
+      <div class="home-mod"><div class="mod-icon">🎯</div><div class="mod-name">Вакансия</div><div class="mod-desc">Ключевые требования</div></div>
+      <div class="home-mod"><div class="mod-icon">🎤</div><div class="mod-name">Практика</div><div class="mod-desc">Ответы на вопросы</div></div>
+      <div class="home-mod"><div class="mod-icon">🧪</div><div class="mod-name">Пробное интервью</div><div class="mod-desc">Полный прогон</div></div>
+      <div class="home-mod"><div class="mod-icon">💬</div><div class="mod-name">Питч о себе</div><div class="mod-desc">Рассказ за 2 минуты</div></div>
+      <div class="home-mod"><div class="mod-icon">💰</div><div class="mod-name">Зарплата</div><div class="mod-desc">Переговоры по офферу</div></div>
+      <div class="home-mod locked"><div class="mod-icon">🤝</div><div class="mod-name">Переговоры</div><div class="mod-desc">🔒 Тариф Оффер</div></div>
+    </div>
+    <div class="home-progress">
+      <h3>Прогресс подготовки</h3>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:42%"></div></div>
+      <div class="progress-stats">
+        <span>Пройдено: <strong>7</strong> сессий</span>
+        <span>Осталось: <strong>18</strong></span>
+        <span>Средний балл: <strong>3.6/5</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCREEN 4: UPGRADE ===== -->
+<div class="demo-screen" id="screen-upgrade" style="min-height:calc(100vh - 34px);background:rgba(26,23,20,.45);align-items:center;justify-content:center;padding:24px">
+  <div class="overlay-card" style="max-width:760px;text-align:left;position:relative">
+    <button class="overlay-close">&times;</button>
+    <h2 style="text-align:center;margin-bottom:6px">Выберите тариф</h2>
+    <p style="text-align:center;color:var(--text2);margin-bottom:0">Без подписок. Купили — используете.</p>
+    <div class="upgrade-grid">
+      <div class="price-card">
+        <h3>Старт</h3>
+        <div class="price">490 <span>₽</span></div>
+        <div class="price-note">Попробовать</div>
+        <ul class="price-features">
+          <li>8 сессий</li>
+          <li>Разбор резюме</li>
+          <li>Оценка по 5 критериям</li>
+          <li class="locked">Голосовой режим</li>
+          <li class="locked">Пробное интервью</li>
+        </ul>
+        <button class="price-btn secondary">Выбрать</button>
+      </div>
+      <div class="price-card popular">
+        <div class="price-badge">Популярный</div>
+        <h3>Подготовка</h3>
+        <div class="price">990 <span>₽</span></div>
+        <div class="price-note">Подготовиться основательно</div>
+        <ul class="price-features">
+          <li>25 сессий</li>
+          <li>Разбор резюме</li>
+          <li>Оценка по 5 критериям</li>
+          <li>Голосовой режим</li>
+          <li>Пробное интервью</li>
+        </ul>
+        <button class="price-btn primary">Купить</button>
+      </div>
+      <div class="price-card">
+        <h3>Оффер</h3>
+        <div class="price">1 990 <span>₽</span></div>
+        <div class="price-note">Получить лучшие условия</div>
+        <ul class="price-features">
+          <li>40 сессий</li>
+          <li>Всё из Подготовки</li>
+          <li>Переговоры по зарплате</li>
+          <li>Разбор оффера</li>
+          <li>Приоритет поддержки</li>
+        </ul>
+        <button class="price-btn secondary">Выбрать</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(name) {
+  document.querySelectorAll('.demo-screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.demo-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('screen-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
